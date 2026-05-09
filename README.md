@@ -45,4 +45,11 @@ For handling sensitive session data, we opted for **HTTP-Only cookies** to ensur
 ### **Zustand for State Management**
 We use **Zustand** for global state management because it's lightweight and easy to use. It handles our authentication state and meal search history, syncing perfectly with our IndexedDB persistence layer to keep your data safe across page reloads.
 
-.
+## **ScrenShots
+<img width="1470" height="834" alt="Screenshot 2026-05-09 at 4 10 47 PM" src="https://github.com/user-attachments/assets/4df942ec-396c-472a-9689-f1c08ababb45" />
+<img width="1470" height="834" alt="Screenshot 2026-05-09 at 4 11 02 PM" src="https://github.com/user-attachments/assets/0e435058-eed7-4cf2-96d4-60cc08bcbd23" />
+<img width="1470" height="834" alt="Screenshot 2026-05-09 at 4 11 18 PM" src="https://github.com/user-attachments/assets/03964a04-8fc5-46f7-82f8-ceb3ba6da205" />
+<img width="343" height="744" alt="Screenshot 2026-05-09 at 4 13 56 PM" src="https://github.com/user-attachments/assets/4899d346-9bc0-4fb5-8871-1e6429686327" />
+<img width="1470" height="835" alt="Screenshot 2026-05-09 at 4 14 33 PM" src="https://github.com/user-attachments/assets/2955ab98-6172-4615-88b4-6c42d19d00e8" />
+
+
