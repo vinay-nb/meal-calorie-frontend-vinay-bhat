@@ -1,3 +1,4 @@
+Preview - https://meal-calorie-frontend-vinay-bhat.vercel.app/
 # Meal Calorie Tracker 🥗
 
 A production-ready web application designed to help users track their nutrition instantly. Simply enter a dish name and serving size, and get a complete breakdown of calories and macronutrients.
