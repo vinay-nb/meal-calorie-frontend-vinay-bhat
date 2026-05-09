@@ -29,6 +29,61 @@ To get the project running locally, follow these simple steps:
     ```
     Open [http://localhost:3000](http://localhost:3000) in your browser to see the app in action.
 
+## 🐳 Dockerization
+
+You can also run the application using Docker. This ensures a consistent environment regardless of where it's deployed. We provide two separate Docker configurations:
+*   **`Dockerfile`**: Optimized for production (multi-stage build).
+*   **`Dockerfile.dev`**: Tailored for development (hot-reloading enabled).
+
+### **1. Moving to Another System**
+If you need to move the project to another computer, use the pre-packaged source code archive: **`meal-tracker-source.tar.gz`**.
+
+1.  Transfer the archive to the new system.
+2.  Extract the source:
+    ```bash
+    tar -xzf meal-tracker-source.tar.gz
+    cd meal-calorie-count-generator
+    ```
+
+### **2. Build the Production Image**
+Run the following command to build the highly optimized production image:
+```bash
+docker build -t meal-tracker --build-arg NEXT_PUBLIC_API_BASE_URL=https://your-api-endpoint.com .
+```
+
+### **3. Run the Production Container**
+Start the application on port 3000:
+```bash
+docker run -p 3000:3000 meal-tracker
+```
+The app will be available at [http://localhost:3000](http://localhost:3000).
+
+### **4. Share as Image File (Optional)**
+If you want to share a pre-built image (so others don't have to build it), you can export it:
+```bash
+docker save meal-tracker > meal-tracker.tar
+```
+On the other system, load it using:
+```bash
+docker load < meal-tracker.tar
+```
+
+## 🛠 Dockerized Development Environment
+
+We also provide a pre-configured development environment using Docker Compose. This is the **easiest way** to start developing with hot-reloading.
+
+### **Start Developing**
+Simply run:
+```bash
+docker-compose up
+```
+This command uses **`Dockerfile.dev`** and mounts your source code as a volume. Any changes you make locally will be reflected instantly in the container.
+
+To run in the background:
+```bash
+docker-compose up -d
+```
+
 ## 🧠 Tech Decisions & Trade-offs
 
 ### **Why IndexedDB for Search History?**
@@ -45,7 +100,7 @@ For handling sensitive session data, we opted for **HTTP-Only cookies** to ensur
 ### **Zustand for State Management**
 We use **Zustand** for global state management because it's lightweight and easy to use. It handles our authentication state and meal search history, syncing perfectly with our IndexedDB persistence layer to keep your data safe across page reloads.
 
-## **ScrenShots
+## 📸 Screenshots
 <img width="1470" height="834" alt="Screenshot 2026-05-09 at 4 10 47 PM" src="https://github.com/user-attachments/assets/4df942ec-396c-472a-9689-f1c08ababb45" />
 <img width="1470" height="834" alt="Screenshot 2026-05-09 at 4 11 02 PM" src="https://github.com/user-attachments/assets/0e435058-eed7-4cf2-96d4-60cc08bcbd23" />
 <img width="1470" height="834" alt="Screenshot 2026-05-09 at 4 11 18 PM" src="https://github.com/user-attachments/assets/03964a04-8fc5-46f7-82f8-ceb3ba6da205" />

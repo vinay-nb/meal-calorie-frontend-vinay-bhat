@@ -1,0 +1,20 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Copy package files
+COPY package.json package-lock.json* ./
+
+# Install dependencies
+RUN npm install
+
+# Note: We don't copy all source code here because we'll use volumes
+# in docker-compose for hot-reloading. However, copying it here
+# ensures the image can run standalone if needed.
+COPY . .
+
+# Expose the development port
+EXPOSE 3000
+
+# Start the application in development mode
+CMD ["npm", "run", "dev"]
