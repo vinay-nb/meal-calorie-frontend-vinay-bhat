@@ -1,0 +1,48 @@
+# Meal Calorie Tracker 🥗
+
+A production-ready web application designed to help users track their nutrition instantly. Simply enter a dish name and serving size, and get a complete breakdown of calories and macronutrients.
+
+## 🚀 Getting Started
+
+To get the project running locally, follow these simple steps:
+
+1.  **Clone the Repository**:
+    ```bash
+    git clone <repository-url>
+    cd meal-calorie-count-generator
+    ```
+
+2.  **Install Dependencies**:
+    ```bash
+    npm install
+    ```
+
+3.  **Configure Environment Variables**:
+    Create a `.env.local` file in the root directory and add your API base URL:
+    ```env
+    NEXT_PUBLIC_API_BASE_URL=https://your-api-endpoint.com
+    ```
+
+4.  **Run the Development Server**:
+    ```bash
+    npm run dev
+    ```
+    Open [http://localhost:3000](http://localhost:3000) in your browser to see the app in action.
+
+## 🧠 Tech Decisions & Trade-offs
+
+### **Why IndexedDB for Search History?**
+We chose **IndexedDB** over standard LocalStorage for managing the user's recent search history for a few key reasons:
+*   **Handling Large Datasets**: While LocalStorage is capped at ~5MB, IndexedDB is designed to handle significantly larger datasets. This allows our app to store detailed meal breakdowns and raw API responses without worrying about hitting browser storage limits.
+*   **Asynchronous Operations**: Writing and reading operations in IndexedDB are asynchronous. This is a huge advantage for performance because it prevents the storage logic from blocking the main UI thread, ensuring that the user experience remains smooth and responsive even as their history grows.
+*   **Robust Data Structure**: It provides a more powerful indexing system, making it easier to manage unique entries and complex objects compared to the simple string-based storage of LocalStorage.
+
+### **Security: HTTP-Only Cookies**
+For handling sensitive session data, we opted for **HTTP-Only cookies** to ensure maximum protection.
+*   **XSS Protection**: By setting cookies with the `HttpOnly` flag, we make them inaccessible to client-side JavaScript. This is a critical defense against Cross-Site Scripting (XSS) attacks, as it prevents malicious scripts from stealing session tokens even if they manage to run on the page.
+*   **Seamless Auth**: This method allows the browser to automatically handle token transmission with each request, reducing the amount of manual token management needed in the frontend code.
+
+### **Zustand for State Management**
+We use **Zustand** for global state management because it's lightweight and easy to use. It handles our authentication state and meal search history, syncing perfectly with our IndexedDB persistence layer to keep your data safe across page reloads.
+
+.
