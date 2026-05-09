@@ -52,3 +52,4 @@ We use **Zustand** for global state management because it's lightweight and easy
 <img width="343" height="744" alt="Screenshot 2026-05-09 at 4 13 56 PM" src="https://github.com/user-attachments/assets/4899d346-9bc0-4fb5-8871-1e6429686327" />
 <img width="1470" height="835" alt="Screenshot 2026-05-09 at 4 14 33 PM" src="https://github.com/user-attachments/assets/2955ab98-6172-4615-88b4-6c42d19d00e8" />
 
+
