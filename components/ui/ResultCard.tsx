@@ -110,8 +110,8 @@ export default function ResultCard({ result }: { result: MealResult }) {
           <h4 className="text-sm font-semibold mb-4 text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-2">
             Macronutrients Breakdown
           </h4>
-          <div className="w-full overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-slate-800/30 shadow-sm">
-            <table className="w-full min-w-[340px] text-left table-fixed border-collapse">
+          <div className="w-full overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-slate-800/30 shadow-sm custom-scrollbar">
+            <table className="w-full min-w-[400px] text-left table-fixed border-collapse">
               <thead>
                 <tr className="bg-slate-50/80 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-700/50">
                   <th className="py-3 px-4 font-semibold text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider">Nutrient</th>
